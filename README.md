@@ -1,84 +1,72 @@
-# API_Python_IA
+# API de Produtos - FastAPI e MongoDB
 
-API de Produtos - FastAPI e MongoDB
+Esta é uma API de gerenciamento de produtos construída com **FastAPI** e **MongoDB**. A API permite realizar operações CRUD (Criar, Ler, Atualizar e Deletar) sobre um banco de dados MongoDB. A aplicação foi desenvolvida com foco em simplicidade e performance.
 
-Esta é uma API de gerenciamento de produtos construída com FastAPI e MongoDB. 
+---
 
-A API permite realizar operações CRUD (Criar, Ler, Atualizar e Deletar) sobre um banco de dados MongoDB.
+## Funcionalidades
 
-A aplicação foi desenvolvida com foco em simplicidade, performance e utilizando IA
-
-Funcionalidades
 A API possui as seguintes rotas:
 
-GET /produtos: Retorna a lista de todos os produtos.
+- **GET /produtos**: Retorna a lista de todos os produtos.
+- **POST /produtos**: Cria um novo produto.
+- **PATCH /produtos/{codigo}**: Atualiza um produto existente.
+- **DELETE /produtos/{codigo}**: Remove um produto pelo código.
 
-POST /produtos: Cria um novo produto.
+---
 
-PATCH /produtos/{codigo}: Atualiza um produto existente.
+## Tecnologias
 
-DELETE /produtos/{codigo}: Remove um produto pelo código.
+- **FastAPI**: Framework para construção de APIs rápidas e eficientes com Python.
+- **MongoDB**: Banco de dados NoSQL utilizado para armazenar os dados dos produtos.
+- **Docker**: Ferramenta para rodar o MongoDB em container.
 
-Tecnologias
-FastAPI: Framework para construção de APIs rápidas e eficientes com Python.
+---
 
-MongoDB: Banco de dados NoSQL utilizado para armazenar os dados dos produtos.
+## Requisitos
 
-Docker: Ferramenta para rodar o MongoDB em container.
+- **Python 3.9+**
+- **Docker** (para rodar o MongoDB)
+- **MongoDB** (Rodando no Docker ou localmente)
+- **FastAPI e Uvicorn para a API**
 
-Requisitos
-Python 3.9+
-Docker (para rodar o MongoDB)
-MongoDB (Rodando no Docker ou localmente)
-FastAPI e Uvicorn para a API
-Instalação
-1. Clonando o Repositório
+---
+
+## Instalação
+
+### 1. Clonando o Repositório
+
 Clone o repositório para a sua máquina:
 
-bash
-
-git clone https://github.com/seu_usuario/projeto-api-produtos.git
+```bash
+git clone https://github.com/Bitcomiatech/API_Python_IA.git
 cd projeto-api-produtos
-2. Instalando Dependências
-Instale as dependências utilizando pip:
-
-bash
-
-pip install -r requirements.txt
-As dependências necessárias são:
-
-fastapi
-pymongo
-uvicorn
-Se você não tiver o arquivo requirements.txt, basta rodar o comando abaixo para instalar as dependências diretamente:
-
-bash
-
+```
+## 2. Instalando Dependências
+```bash
 pip install fastapi pymongo uvicorn
-3. Rodando o MongoDB com Docker
-Se você ainda não tem o MongoDB rodando, utilize o Docker para subir o container:
-
-bash
-
+```
+### 3. Rodando o MongoDB com Docker
+- **Se você ainda não tem o MongoDB rodando, utilize o Docker para subir o container**
+```bash
 docker run -d -p 27017:27017 --name mongodb mongo
-Isso fará o download da imagem oficial do MongoDB e rodará o banco de dados na porta 27017 da sua máquina local.
-
-4. Executando a API
-Para iniciar o servidor da API, execute:
-
-bash
-
+```
+### 4. Executando a API
+- **Para iniciar o servidor da API, execute**
+```bash
 uvicorn main:app --reload
-A aplicação estará disponível em http://127.0.0.1:8000.
+```
+- **A aplicação estará disponível em http://127.0.0.1:8000.**
 
-Endpoints
-1. GET /produtos
+- ## Endpoints
+
+### 1. **GET /produtos**
+
 Retorna todos os produtos cadastrados no MongoDB.
 
-Resposta:
+**Resposta**:
 
-json
-
+```json
 {
   "data": [
     {
@@ -87,26 +75,32 @@ json
       "quantidade": 10,
       "valor": 199.99
     },
-    ...
+{
+      "codigo": 2,
+      "nome": "Produto 2",
+      "quantidade": 11,
+      "valor": 11.99
+    }
   ]
 }
-2. POST /produtos
+```
+
+### 2. **POST /produtos**
+
 Cria um novo produto.
 
-Requisição:
+**Requisição**:
 
-json
-
+```json
 {
-  "codigo": 2,
-  "nome": "Produto 2",
+  "codigo": 3,
+  "nome": "Produto 3",
   "quantidade": 5,
   "valor": 99.99
 }
-Resposta:
-
-json
-
+```
+**Resposta**:
+```json
 {
   "message": "Produto inserido com sucesso.",
   "produto": {
@@ -116,20 +110,21 @@ json
     "valor": 99.99
   }
 }
-3. PATCH /produtos/{codigo}
+```
+
+### 3. **PATCH /produtos/{codigo}**
+
 Atualiza um produto existente com base no código.
 
-Requisição:
+**Requisição**:
 
-json
-
+```json
 {
   "valor": 120.99
 }
-Resposta:
-
-json
-
+```
+**Resposta**:
+```json
 {
   "message": "Produto atualizado com sucesso.",
   "codigo": 2,
@@ -137,45 +132,16 @@ json
     "valor": 120.99
   }
 }
-4. DELETE /produtos/{codigo}
+```
+
+### 4. **DELETE /produtos/{codigo}**
+
 Remove um produto com base no código.
 
-Resposta:
-
-json
-
+**Resposta**:
+```json
 {
   "message": "Produto deletado com sucesso.",
   "codigo": 2
 }
-Testando a API
-A documentação interativa da API está disponível em:
-
-Swagger UI: http://127.0.0.1:8000/docs
-ReDoc: http://127.0.0.1:8000/redoc
-Exemplo de Uso
-Criar Produto:
-
-Faça uma requisição POST para /produtos com um corpo JSON para criar um produto.
-Listar Produtos:
-
-Faça uma requisição GET para /produtos para obter todos os produtos cadastrados.
-Atualizar Produto:
-
-Faça uma requisição PATCH para /produtos/{codigo} para atualizar os dados de um produto específico.
-Deletar Produto:
-
-Faça uma requisição DELETE para /produtos/{codigo} para remover um produto.
-Docker (Opcional)
-Se preferir rodar o MongoDB dentro de um container Docker, basta usar o comando:
-
-bash
-
-docker run -d -p 27017:27017 --name mongodb mongo
-Isso fará o MongoDB rodar em um container, e a API pode se conectar ao banco na porta 27017.
-
-Contribuição
-Sinta-se à vontade para contribuir com melhorias ou correções de bugs. Faça um fork do projeto, crie uma branch e envie um pull request.
-
-Licença
-Este projeto está licenciado sob a MIT License.
+```
