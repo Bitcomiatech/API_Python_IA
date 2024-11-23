@@ -40,7 +40,7 @@ Clone o repositório para a sua máquina:
 
 ```bash
 git clone https://github.com/Bitcomiatech/API_Python_IA.git
-cd projeto-api-produtos
+cd API_Python_IA
 ```
 ## 2. Instalando Dependências
 ```bash
