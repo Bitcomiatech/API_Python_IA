@@ -1,6 +1,6 @@
 # API de Produtos - FastAPI e MongoDB
 
-Esta é uma API de gerenciamento de produtos construída com **FastAPI** e **MongoDB**. A API permite realizar operações CRUD (Criar, Ler, Atualizar e Deletar) sobre um banco de dados MongoDB. A aplicação foi desenvolvida com foco em simplicidade e performance.
+Esta é uma API de gerenciamento de produtos construída com **FastAPI** e **MongoDB**. A API permite realizar operações CRUD (Criar, Ler, Atualizar e Deletar) sobre um banco de dados MongoDB. A aplicação foi desenvolvida com foco em simplicidade e performance com inteligencia artificial.
 
 ---
 
