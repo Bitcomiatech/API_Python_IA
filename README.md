@@ -1,19 +1,31 @@
 # API_Python_IA
 
 API de Produtos - FastAPI e MongoDB
-Esta é uma API de gerenciamento de produtos construída com FastAPI e MongoDB. A API permite realizar operações CRUD (Criar, Ler, Atualizar e Deletar) sobre um banco de dados MongoDB. A aplicação foi desenvolvida com foco em simplicidade e performance.
+
+Esta é uma API de gerenciamento de produtos construída com FastAPI e MongoDB. 
+
+A API permite realizar operações CRUD (Criar, Ler, Atualizar e Deletar) sobre um banco de dados MongoDB.
+
+A aplicação foi desenvolvida com foco em simplicidade, performance e utilizando IA
 
 Funcionalidades
 A API possui as seguintes rotas:
 
 GET /produtos: Retorna a lista de todos os produtos.
+
 POST /produtos: Cria um novo produto.
+
 PATCH /produtos/{codigo}: Atualiza um produto existente.
+
 DELETE /produtos/{codigo}: Remove um produto pelo código.
+
 Tecnologias
 FastAPI: Framework para construção de APIs rápidas e eficientes com Python.
+
 MongoDB: Banco de dados NoSQL utilizado para armazenar os dados dos produtos.
+
 Docker: Ferramenta para rodar o MongoDB em container.
+
 Requisitos
 Python 3.9+
 Docker (para rodar o MongoDB)
